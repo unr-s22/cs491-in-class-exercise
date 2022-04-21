@@ -15,10 +15,14 @@ for s <- ["In Progress", "Completed"] do
   %InClassExercise.Assignments.TaskStatus{name: s} |> Repo.insert()
 end
 
+for s <- ["In Progress", "Completed", "Blocked", "Deprecated"] do
+  %InClassExercise.Assignments.AssignmentStatus{name: s} |> Repo.insert()
+end
+
 for s <- ["UI", "Database", "Back-end"] do
   %InClassExercise.Developers.Area{name: s} |> Repo.insert()
 end
 
-for d <- ~w(Tom Sandy Elmer) do
-  %InClassExercise.Developers.Developer{last_name: "Smith", first_name: d, area_id: 1}
+for s <- ["Add menu", "Change CSS", "Revise build system"] do
+  %InClassExercise.Assignments.Task{name: s, description: "A task"} |> Repo.insert()
 end
