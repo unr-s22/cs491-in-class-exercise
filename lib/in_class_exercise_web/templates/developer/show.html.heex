@@ -1,0 +1,50 @@
+<h1>Developer Information</h1>
+
+<ul>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @developer.last_name %>
+  </li>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @developer.first_name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @developer.email %>
+  </li>
+
+  <li>
+    <strong>Area:</strong>
+    <%= @developer.area.name %>
+  </li>
+</ul>
+
+  <table>
+  <tr>
+  <th>Assignment</th>
+  <th>Due Date</th>
+  <th>Task</th>
+  <th>Task Details</th>
+  <th>Status</th>
+  </tr>
+
+  <%= for assignment <- @developer.assignments do %>
+  <tr>
+  <td><%= assignment.name %></td>
+  <td><%= assignment.due_date %></td>
+  <td><%= assignment.task.name %></td>
+  <td><%= assignment.task.description %></td>
+  <td><%= assignment.status.name %></td>
+  </tr>
+
+  <% end %>
+
+</table>
+
+
+<span><%= link "Edit", to: Routes.developer_path(@conn, :edit, @developer) %></span> |
+<span><%= link "Back", to: Routes.developer_path(@conn, :index) %></span>

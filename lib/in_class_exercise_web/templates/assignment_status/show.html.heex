@@ -1,0 +1,13 @@
+<h1>Show Assignment status</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @assignment_status.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.assignment_status_path(@conn, :edit, @assignment_status) %></span> |
+<span><%= link "Back", to: Routes.assignment_status_path(@conn, :index) %></span>

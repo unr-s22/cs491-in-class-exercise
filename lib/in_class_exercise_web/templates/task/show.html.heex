@@ -1,0 +1,44 @@
+<h1>Show Task</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @task.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @task.description %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @task.status.name %>
+  </li>
+</ul>
+
+<table>
+  <tr>
+  <th>Assignment</th>
+  <th>Developer</th>
+  <th>Due Date</th>
+  <th>Status</th>
+  </tr>
+
+  <%= for assignment <- @task.assignments do %>
+  <tr>
+  <td><%= assignment.name %></td>
+  <td><%= assignment.developer.last_name %></td>
+  <td><%= assignment.due_date %></td>
+  <td><%= assignment.status.name %></td>
+  </tr>
+
+  <% end %>
+</table>
+
+
+
+
+<span><%= link "Edit", to: Routes.task_path(@conn, :edit, @task) %></span> |
+<span><%= link "Back", to: Routes.task_path(@conn, :index) %></span>

@@ -1,0 +1,5 @@
+<h1>Edit Assignment status</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.assignment_status_path(@conn, :update, @assignment_status)) %>
+
+<span><%= link "Back", to: Routes.assignment_status_path(@conn, :index) %></span>

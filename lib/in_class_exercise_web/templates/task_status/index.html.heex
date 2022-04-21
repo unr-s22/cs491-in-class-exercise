@@ -1,0 +1,26 @@
+<h1>Listing Task statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for task_status <- @task_statuses do %>
+    <tr>
+      <td><%= task_status.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.task_status_path(@conn, :show, task_status) %></span>
+        <span><%= link "Edit", to: Routes.task_status_path(@conn, :edit, task_status) %></span>
+        <span><%= link "Delete", to: Routes.task_status_path(@conn, :delete, task_status), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Task status", to: Routes.task_status_path(@conn, :new) %></span>
